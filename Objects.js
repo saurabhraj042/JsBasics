@@ -18,3 +18,20 @@ console.log(owner)
 delete owner.email
 
 console.log(owner)
+
+let copyOwner = owner; // only reference to owner object is stored inside copyOwner
+
+// Ways to copy the actual object
+for (let key in owner) {
+    copyOwner[key] = owner[key];
+}
+
+copyOwner.name = 'Copy Owner'
+
+console.log(copyOwner)
+
+Object.assign(copyOwner, owner)
+
+copyOwner.name = 'Copy Owner by Assign'
+
+console.log(copyOwner)
