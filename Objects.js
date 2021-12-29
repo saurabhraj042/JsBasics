@@ -7,7 +7,9 @@ let user = {
 const owner = {
     name: "Saurabh Raj",
     age: 22,
-    email: "example@gmail.com"
+    email: "example@gmail.com",
+    rentCollected: 0,
+    tenantWithNoDue: []
 }
 console.log(owner)
 
@@ -35,3 +37,16 @@ Object.assign(copyOwner, owner)
 copyOwner.name = 'Copy Owner by Assign'
 
 console.log(copyOwner)
+
+// Add few basic functionalities of the owner
+
+function getRentFromTenant(nameOfTenant, rentAmount) {
+    this.rentCollected += rentAmount
+    this.tenantWithNoDue.push(nameOfTenant)
+};
+
+owner.getRentFromTenant = getRentFromTenant;
+
+owner.getRentFromTenant('Raj', 1000)
+
+console.log(owner)
